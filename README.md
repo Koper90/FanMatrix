@@ -1,7 +1,6 @@
 # FanMatrix
 
-![image](https://github.com/user-attachments/assets/46d7d377-fca2-4142-a8db-c55ef6df10a0)
-
+![image](https://github.com/user-attachments/assets/25b0ae2e-faa7-48af-b8ac-7a277288b3ec)
 
 This board was created out of necessity, as I found myself needing more fan and thermistor ports for my own 3D printers. It's perfect for expanding cooling systems, temperature monitoring, and fan control setups in Klipper-based 3D printers, with minimal additional cost.
 
@@ -21,5 +20,9 @@ Designed with low cost in mind for accessible integration into projects.
 
 ### Mounting
 
-Mounts are located in the "CAD" folder and there are both horizontal and vertical mounts that can be used with M3 hardware for both 2020 and 1515 extrusions.
+Mounts are located in the CAD folder.
+
+### Connectors
+
+All the connectors are JST PH 2.54.
 
