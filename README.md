@@ -26,7 +26,7 @@ Mounts are located in the CAD folder.
 
 All the connectors are JST PH 2.54.
 
-###Interactive BOM
+### Interactive BOM
 
-[FanMatrix BOM](https://htmlpreview.github.io/?https://github.com/Koper90/FanMatrix/blob/main/KiCAD/ibom.html)
+[FanMatrix BOM](https://htmlpreview.github.io/?https://github.com/Koper90/FanMatrix/blob/main/KiCad/ibom.html)
 
