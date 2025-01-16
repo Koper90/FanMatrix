@@ -1,28 +1,70 @@
-### Flashing Instructions:
+Here’s a summarized and clarified version of the flashing instructions for ease of use:
 
-1. Connect the board to the host Raspberry Pi via USB.
+---
 
-2. Connect to your host raspberry pi via SSH.
+### Flashing the Board for Klipper
 
-3. Press the boot button and then press the reset button the board. This will put the board into DFU mode.
+1. **Connect Hardware**  
+   - Attach the board to the Raspberry Pi via USB.  
+   - Ensure either the **5V jumper** is connected or **24V power** is supplied to the board.
 
-4. Run ```lsusb``` from the command prompt
-  Make sure you see an STM32 in DFU mode listed
+2. **Access Raspberry Pi**  
+   - Connect to the Raspberry Pi via SSH.
 
-5. Run ```dfu-util --list``` from the command prompt
-  note the text inside the [xxxx:yyyy]
-6. Run ```cd ~/klipper``` from the command line to enter the Klipper directory
+3. **Enter DFU Mode**  
+   - Press and hold the **Boot** button.  
+   - While holding **Boot**, press and release the **Reset** button.  
+   - Release the **Boot** button. The board should now be in DFU mode.
 
-7. Run ```make menuconfig``` settings should be:
-  ![klipper_config](https://github.com/user-attachments/assets/f60c7b9d-d3d7-4fba-a3c8-74d8f99003a8)
-  Hit Q to Exit and Save
-8.  Run ```make clean``` to clean up the make environment.
-9.  Run ```make flash FLASH_DEVICE=xxxx:yyyy``` (using xxxx:yyyy from above)
-10.  Press the reset button
-11.  After completion ```ls /dev/serial/by-id/*``` should return a device begining with ```/dev/serial/by-id/usb-Klipper_stm32f072x6...```
-12.  Copy this serial port name ```/dev/serial/by-id/usb-Klipper_stm32f072x6...``` and place it in your [FanMatrix mcu] section of the config file.
+4. **Verify DFU Mode**  
+   - Run `lsusb` to ensure the STM32 device is listed in DFU mode.  
+   - Run `dfu-util --list` and note the device identifier in `[xxxx:yyyy]`.
 
-Your board should now be usable with Klipper. Use the example config file to get started Best option is to copy the example config file into the same directory as printer.cfg then add [include FanMatrix.cfg] to the end of your printer.cfg to include the file.
+5. **Prepare Klipper Firmware**  
+   - Navigate to the Klipper directory:  
+     ```bash
+     cd ~/klipper
+     ```
+   - Configure the build with `make menuconfig`:
+     ![klipper_config](https://github.com/user-attachments/assets/6e841b0f-7c02-40d5-9c19-80252fefbbd7)
 
+     - Ensure the settings match the provided configuration screenshot.
+     - Press **Q** to exit and save changes.
 
+6. **Build the Firmware**  
+   - Clean the environment:  
+     ```bash
+     make clean
+     ```  
+   - Flash the firmware using the device identifier from Step 4:  
+     ```bash
+     make flash FLASH_DEVICE=xxxx:yyyy
+     ```
 
+7. **Finalize the Flashing**  
+   - Press the **Reset** button to restart the board.
+
+8. **Verify the Serial Connection**  
+   - Run the following command to list serial devices:  
+     ```bash
+     ls /dev/serial/by-id/*
+     ```  
+   - Look for a device similar to:  
+     ```
+     /dev/serial/by-id/usb-Klipper_stm32f072x6...
+     ```
+
+9. **Update Configuration**  
+   - Copy the serial port name (e.g., `/dev/serial/by-id/usb-Klipper_stm32f072x6...`).  
+   - Add it to the `[FanMatrix mcu]` section in your Klipper configuration file.
+
+10. **Include Example Config**  
+    - Copy the example configuration file into the same directory as `printer.cfg`.  
+    - Add the following line to the end of `printer.cfg`:  
+      ```
+      [include FanMatrix.cfg]
+      ```
+
+---
+
+Your board should now be ready to use with Klipper! 🚀
