@@ -1,6 +1,7 @@
 # FanMatrix
 
-![image](https://github.com/user-attachments/assets/96fd3d68-e961-4185-81d7-dbbaf2467f55)
+![image](https://github.com/user-attachments/assets/a5baf0c8-56ad-4165-ac73-b50f1ce8a5a4)
+
 
 
 This board was created out of necessity, as I found myself needing more fan and thermistor ports for my own 3D printers. It's perfect for expanding cooling systems, temperature monitoring, and fan control setups in Klipper-based 3D printers, with minimal additional cost.
